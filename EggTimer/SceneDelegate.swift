@@ -2,8 +2,12 @@
 //  SceneDelegate.swift
 //  EggTimer
 //
-//  Created by Nawaf B Al sharqi on 07/11/1441 AH.
-//  Copyright © 1441 Nawaf B Al sharqi. All rights reserved.
+//
+//
+//  Created by Nawaf Al sharqi
+//  Copyright © 2020
+//
+
 //
 
 import UIKit

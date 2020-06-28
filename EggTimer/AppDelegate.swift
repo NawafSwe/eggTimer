@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  EggTimer
 //
-//  Created by Nawaf B Al sharqi on 07/11/1441 AH.
-//  Copyright © 1441 Nawaf B Al sharqi. All rights reserved.
+//  Created by Nawaf Al sharqi
+//  Copyright © 2020
 //
 
 import UIKit
@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
     // MARK: UISceneSession Lifecycle
