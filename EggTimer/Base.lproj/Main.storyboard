@@ -49,7 +49,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                                         <state key="normal" title="Soft"/>
                                                         <connections>
-                                                            <action selector="hardnessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rSy-BE-lAX"/>
+                                                            <action selector="hardnessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lcE-Yt-H25"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -75,7 +75,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                                         <state key="normal" title="Medium"/>
                                                         <connections>
-                                                            <action selector="hardnessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DbV-7q-k36"/>
+                                                            <action selector="hardnessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="le4-TR-3TB"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -101,7 +101,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                                         <state key="normal" title="Hard"/>
                                                         <connections>
-                                                            <action selector="hardnessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fAK-uH-2Ly"/>
+                                                            <action selector="hardnessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BOo-Y2-UzE"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -120,6 +120,22 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJN-th-c5K" userLabel="Timer View">
                                         <rect key="frame" x="0.0" y="571.5" width="374" height="246.5"/>
+                                        <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="T0f-p2-4tl">
+                                                <rect key="frame" x="0.0" y="120.5" width="374" height="6"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="bBf-D5-JcX"/>
+                                                </constraints>
+                                                <color key="progressTintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="trackTintColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </progressView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="T0f-p2-4tl" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="1oP-fg-wLu"/>
+                                            <constraint firstAttribute="trailing" secondItem="T0f-p2-4tl" secondAttribute="trailing" id="XlK-PW-dLO"/>
+                                            <constraint firstItem="T0f-p2-4tl" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" id="p5m-M8-zSq"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -134,7 +150,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="eggStatus" destination="XLm-5r-pSP" id="YW4-Tg-4SS"/>
+                        <outlet property="eggProgress" destination="T0f-p2-4tl" id="iHK-DU-8Mb"/>
+                        <outlet property="eggStatus" destination="XLm-5r-pSP" id="fod-XJ-LFq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

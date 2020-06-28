@@ -11,15 +11,18 @@ import UIKit
 class ViewController: UIViewController {
     
     // minutesConversion * eggTimes[key] to convert them to second to use them in the counter
-    var counter : Int = 0
+    
     var timer  = Timer()
     let minutesConversion : Int = 60
     // we have to use lazy to avoid Cannot use instance member 'counter' within property initializer; property initializers run before 'self' is available this error
-    lazy var eggTimes: [String:Int] = ["Soft":  5, "Medium": 7 * minutesConversion,"Hard":  12 * minutesConversion]
+    lazy var eggTimes: [String:Int] = ["Soft":  5 * minutesConversion  , "Medium": 7 * minutesConversion,"Hard":  12 * minutesConversion]
     
     
+    var secondsPassed = 0
+    var totalTime = 0
     //UI vars
     @IBOutlet weak var eggStatus: UILabel!
+    @IBOutlet weak var eggProgress: UIProgressView!
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -29,7 +32,11 @@ class ViewController: UIViewController {
     @IBAction func hardnessSelected(_ sender:UIButton){
         // when we but ! at the end we tells that we are sure there must be a value
         let hardness : String =  sender.currentTitle!
-        counter = eggTimes[hardness]!
+        totalTime = eggTimes[hardness]!
+        
+        // re assigning the progress bar after each click and making sure to rest the timer also
+        eggProgress.progress = 0.0
+        secondsPassed = 0
         
         //timer.invalidate will stop the timer like cancel it if the user change his mind and pressed another egg
         timer.invalidate()
@@ -45,15 +52,24 @@ class ViewController: UIViewController {
     //@objc from objective c
     @objc func updateCounter() {
         //example functionality
-        if counter > 0{
-            print("\(counter) seconds")
-            counter -= 1
-        }else{
+        if secondsPassed < totalTime {
+            secondsPassed += 1
+            //increment each time
+            
+            let Percantage = Float (secondsPassed) / Float(totalTime)
+            eggProgress.progress = Percantage
+            print(secondsPassed)
+            
+        }else {
             //stop the timer and change the label 
             timer.invalidate()
-             eggStatus.text = "YOUR EGG IS DONE!"
+            eggStatus.text = "YOUR EGG IS DONE!"
+            eggProgress.progress = 1
+            secondsPassed = 0
+            
+            
         }
     }
-    }
+}
 
 
